@@ -2,7 +2,7 @@
 
 A clean, production-quality full-stack Task Manager built with React + Node.js/Express.
 
-![TaskFlow Screenshot]
+![Home](screenshots/home.png)
 
 ---
 
