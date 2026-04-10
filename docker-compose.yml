@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: taskflow-api
+    ports:
+      - "3001:3001"
+    volumes:
+      - task_data:/app/data   # persist tasks.json across container restarts
+    environment:
+      - PORT=3001
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: taskflow-ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  task_data:
